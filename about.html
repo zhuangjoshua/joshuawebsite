@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Jane Doe - Web Developer & UX Enthusiast</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+        
+        :root {
+            --text-color: #2c3e50;
+            --background-color: #ecf0f1;
+            --accent-color: #3498db;
+            --secondary-color: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        .font-size-controls {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        
+        .font-size-controls button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .font-size-controls button:hover {
+            background-color: #2980b9;
+        }
+        
+        header {
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        
+        nav {
+            background-color: #2980b9;
+            padding: 0.5rem;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a:focus {
+            color: #ecf0f1;
+            text-decoration: underline;
+        }
+        
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .about-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent-color);
+        }
+        
+        footer {
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 40px;
+        }
+        
+        /* High contrast mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-color: #ecf0f1;
+                --background-color: #34495e;
+                --accent-color: #2980b9;
+                --secondary-color: #e74c3c;
+            }
+            
+            .about-content {
+                background-color: #2c3e50;
+            }
+        }
+        
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="font-size-controls" aria-label="Font size controls">
+        <button onclick="changeFontSize('decrease')" aria-label="Decrease font size">A-</button>
+        <button onclick="changeFontSize('increase')" aria-label="Increase font size">A+</button>
+    </div>
+    <header>
+        <h1>Joshua Zhuang</h1>
+        <p class="tagline">Web Developer & UX Enthusiast</p>
+    </header>
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html" aria-current="page">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main id="main-content" class="container">
+        <section class="intro">
+            <h2>About Me</h2>
+            <p>Passionate about creating intuitive and beautiful digital experiences.</p>
+        </section>
+        <section class="about-content">
+            <h3>My Journey</h3>
+            <p>With over a decade of experience in web development and user experience design, I've had the privilege of working on diverse projects that have shaped my skills and perspective. My journey began with a fascination for how technology can enhance our daily lives, and it has evolved into a mission to create digital solutions that are both functional and delightful to use.</p>
+            
+            <h3>Expertise</h3>
+            <p>My expertise spans across front-end development, responsive design, and user experience optimization. I'm proficient in HTML5, CSS3, JavaScript, and various modern frameworks. But beyond the technical skills, I pride myself on my ability to translate complex ideas into user-friendly interfaces that resonate with people.</p>
+            
+            <h3>Philosophy</h3>
+            <p>I believe that great design is invisible. It should facilitate seamless interactions and empower users to achieve their goals effortlessly. This philosophy guides every project I undertake, ensuring that the end product not only meets but exceeds user expectations.</p>
+            
+            <h3>Beyond Work</h3>
+            <p>When I'm not coding or sketching wireframes, you can find me exploring nature trails, experimenting with new recipes in the kitchen, or engrossed in a sci-fi novel. These diverse interests fuel my creativity and bring fresh perspectives to my work.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Joshua Zhuang. Crafted with passion and precision.</p>
+    </footer>
+    <script>
+        function changeFontSize(action) {
+            const body = document.body;
+            const currentSize = window.getComputedStyle(body, null).getPropertyValue('font-size');
+            const newSize = action === 'increase' 
+                ? parseFloat(currentSize) * 1.2 
+                : parseFloat(currentSize) / 1.2;
+            body.style.fontSize = newSize + 'px';
+        }
+    </script>
+</body>
+</html>

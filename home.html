@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Personal Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+        
+        :root {
+            --text-color: #2c3e50;
+            --background-color: #ecf0f1;
+            --accent-color: #3498db;
+            --secondary-color: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        .font-size-controls {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        
+        .font-size-controls button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .font-size-controls button:hover {
+            background-color: #2980b9;
+        }
+        
+        header {
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        
+        nav {
+            background-color: #2980b9;
+            padding: 0.5rem;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a:focus {
+            color: #ecf0f1;
+            text-decoration: underline;
+        }
+        
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .resume-preview {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resume-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        footer {
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 40px;
+        }
+        
+        /* High contrast mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-color: #ecf0f1;
+                --background-color: #34495e;
+                --accent-color: #2980b9;
+                --secondary-color: #e74c3c;
+            }
+            
+            .resume-preview {
+                background-color: #2c3e50;
+            }
+        }
+        
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="font-size-controls" aria-label="Font size controls">
+        <button onclick="changeFontSize('decrease')" aria-label="Decrease font size">A-</button>
+        <button onclick="changeFontSize('increase')" aria-label="Increase font size">A+</button>
+    </div>
+    <header>
+        <h1>Joshua Zhuang</h1>
+        <p class="tagline">Web Developer & UX Enthusiast</p>
+    </header>
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="home.html" aria-current="page">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main id="main-content" class="container">
+        <section class="intro">
+            <h2>Welcome to My Digital Space</h2>
+            <p>Here, creativity meets functionality, and innovation is just a scroll away.</p>
+        </section>
+        <section class="resume-preview">
+            <h3>A Glimpse into My Professional Journey</h3>
+            <img src="resume.png" alt="Visual representation of Jane Doe's resume, highlighting key skills and experiences" class="resume-image">
+            <p>This snapshot of my resume offers a peek into my professional world. With a passion for clean code and user-centric design, I've dedicated my career to crafting digital experiences that leave a lasting impression.</p>
+            <p>Curious to learn more? Don't hesitate to explore my About page or reach out via the Contact section.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Joshua Zhuang. Crafted with passion and precision.</p>
+    </footer>
+    <script>
+        function changeFontSize(action) {
+            const body = document.body;
+            const currentSize = window.getComputedStyle(body, null).getPropertyValue('font-size');
+            const newSize = action === 'increase' 
+                ? parseFloat(currentSize) * 1.2 
+                : parseFloat(currentSize) / 1.2;
+            body.style.fontSize = newSize + 'px';
+        }
+    </script>
+</body>
+</html>
