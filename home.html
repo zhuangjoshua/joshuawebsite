@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Personal Portfolio</title>
+    <title>Joshua Zhuang - Web Developer & UX Enthusiast</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
         
         :root {
-            --text-color: #2c3e50;
-            --background-color: #ecf0f1;
-            --accent-color: #3498db;
-            --secondary-color: #e74c3c;
+            --text-color: #333333;
+            --background-color: #ffffff;
+            --accent-color: #4a90e2;
+            --secondary-color: #e67e22;
+            --input-background: #ffffff;
+            --input-border: #cccccc;
+            --link-color: #0000EE;
+            --link-visited-color: #551A8B;
         }
         
         body {
@@ -32,6 +36,7 @@
             color: white;
             padding: 8px;
             z-index: 100;
+            transition: top 0.3s ease;
         }
         
         .skip-link:focus {
@@ -60,7 +65,7 @@
         }
         
         .font-size-controls button:hover {
-            background-color: #2980b9;
+            background-color: #3a7bd5;
         }
         
         header {
@@ -72,17 +77,17 @@
         
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
         
         .tagline {
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
         nav {
-            background-color: #2980b9;
+            background-color: var(--secondary-color);
             padding: 0.5rem;
         }
         
@@ -107,13 +112,13 @@
         }
         
         nav ul li a:hover, nav ul li a:focus {
-            color: #ecf0f1;
+            color: #f0f0f0;
             text-decoration: underline;
         }
         
         .container {
-            width: 80%;
-            max-width: 1200px;
+            width: 90%;
+            max-width: 1000px;
             margin: auto;
             padding: 40px 20px;
         }
@@ -126,7 +131,7 @@
         .intro h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: var(--secondary-color);
+            color: var(--accent-color);
         }
         
         .resume-preview {
@@ -153,18 +158,41 @@
             margin-top: 40px;
         }
         
+        .high-contrast-toggle {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            z-index: 1000;
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
         /* High contrast mode */
-        @media (prefers-color-scheme: dark) {
+        @media (prefers-contrast: more) {
             :root {
-                --text-color: #ecf0f1;
-                --background-color: #34495e;
-                --accent-color: #2980b9;
-                --secondary-color: #e74c3c;
+                --text-color: #ffffff;
+                --background-color: #000000;
+                --accent-color: #ffff00;
+                --secondary-color: #00ffff;
+                --input-background: #000000;
+                --input-border: #ffffff;
+                --link-color: #ffff00;
+                --link-visited-color: #00ffff;
             }
-            
-            .resume-preview {
-                background-color: #2c3e50;
-            }
+        }
+        
+        body.high-contrast {
+            --text-color: #ffffff;
+            --background-color: #000000;
+            --accent-color: #ffff00;
+            --secondary-color: #00ffff;
+            --input-background: #000000;
+            --input-border: #ffffff;
+            --link-color: #ffff00;
+            --link-visited-color: #00ffff;
         }
         
         /* Reduced motion */
@@ -178,6 +206,9 @@
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
+    <button class="high-contrast-toggle" onclick="toggleHighContrast()" aria-label="Toggle high contrast mode">
+        Toggle High Contrast
+    </button>
     <div class="font-size-controls" aria-label="Font size controls">
         <button onclick="changeFontSize('decrease')" aria-label="Decrease font size">A-</button>
         <button onclick="changeFontSize('increase')" aria-label="Increase font size">A+</button>
@@ -200,13 +231,13 @@
         </section>
         <section class="resume-preview">
             <h3>A Glimpse into My Professional Journey</h3>
-            <img src="resume.png" alt="Visual representation of Jane Doe's resume, highlighting key skills and experiences" class="resume-image">
+            <img src="resume.png" alt="Visual representation of Joshua Zhuang's resume, highlighting key skills and experiences" class="resume-image">
             <p>This snapshot of my resume offers a peek into my professional world. With a passion for clean code and user-centric design, I've dedicated my career to crafting digital experiences that leave a lasting impression.</p>
             <p>Curious to learn more? Don't hesitate to explore my About page or reach out via the Contact section.</p>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 Joshua Zhuang. Crafted with passion and precision.</p>
+        <p>&copy; 2024 Joshua Zhuang. All rights reserved.</p>
     </footer>
     <script>
         function changeFontSize(action) {
@@ -216,6 +247,16 @@
                 ? parseFloat(currentSize) * 1.2 
                 : parseFloat(currentSize) / 1.2;
             body.style.fontSize = newSize + 'px';
+        }
+
+        function toggleHighContrast() {
+            document.body.classList.toggle('high-contrast');
+            localStorage.setItem('highContrast', document.body.classList.contains('high-contrast'));
+        }
+
+        // Check if high contrast mode was previously enabled
+        if (localStorage.getItem('highContrast') === 'true') {
+            document.body.classList.add('high-contrast');
         }
     </script>
 </body>

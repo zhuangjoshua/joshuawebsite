@@ -9,11 +9,13 @@
         
         :root {
             --text-color: #333333;
-            --background-color: #f4f4f4;
+            --background-color: #ffffff;
             --accent-color: #4a90e2;
             --secondary-color: #e67e22;
             --input-background: #ffffff;
             --input-border: #cccccc;
+            --link-color: #0000EE;
+            --link-visited-color: #551A8B;
         }
         
         body {
@@ -34,6 +36,7 @@
             color: white;
             padding: 8px;
             z-index: 100;
+            transition: top 0.3s ease;
         }
         
         .skip-link:focus {
@@ -84,7 +87,7 @@
         }
         
         nav {
-            background-color: #3a7bd5;
+            background-color: var(--secondary-color);
             padding: 0.5rem;
         }
         
@@ -155,6 +158,8 @@
             border: 1px solid var(--input-border);
             border-radius: 4px;
             font-size: 16px;
+            background-color: var(--input-background);
+            color: var(--text-color);
         }
         
         button {
@@ -198,26 +203,41 @@
             margin-top: 40px;
         }
         
-        @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
+        .high-contrast-toggle {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            z-index: 1000;
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
         }
         
         /* High contrast mode */
-        @media (prefers-color-scheme: dark) {
+        @media (prefers-contrast: more) {
             :root {
                 --text-color: #ffffff;
-                --background-color: #1a1a1a;
-                --accent-color: #4a90e2;
-                --secondary-color: #e67e22;
-                --input-background: #333333;
-                --input-border: #555555;
+                --background-color: #000000;
+                --accent-color: #ffff00;
+                --secondary-color: #00ffff;
+                --input-background: #000000;
+                --input-border: #ffffff;
+                --link-color: #ffff00;
+                --link-visited-color: #00ffff;
             }
-            
-            .contact-form, .contact-info {
-                background-color: #2a2a2a;
-            }
+        }
+        
+        body.high-contrast {
+            --text-color: #ffffff;
+            --background-color: #000000;
+            --accent-color: #ffff00;
+            --secondary-color: #00ffff;
+            --input-background: #000000;
+            --input-border: #ffffff;
+            --link-color: #ffff00;
+            --link-visited-color: #00ffff;
         }
         
         /* Reduced motion */
@@ -227,10 +247,19 @@
                 transition: none !important;
             }
         }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
+    <button class="high-contrast-toggle" onclick="toggleHighContrast()" aria-label="Toggle high contrast mode">
+        Toggle High Contrast
+    </button>
     <div class="font-size-controls" aria-label="Font size controls">
         <button onclick="changeFontSize('decrease')" aria-label="Decrease font size">A-</button>
         <button onclick="changeFontSize('increase')" aria-label="Increase font size">A+</button>
@@ -266,7 +295,7 @@
             <section class="contact-info">
                 <h2>Contact Information</h2>
                 <p>Feel free to reach out to me through any of the following channels:</p>
-                <p>Email: joshuazhuang2024@u.northwestern.edu</p>
+                <p>Email: joshua.zhuang@example.com</p>
                 <p>Phone: (561) 631-7583</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/zhuangjoshua/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -285,6 +314,16 @@
                 ? parseFloat(currentSize) * 1.2 
                 : parseFloat(currentSize) / 1.2;
             body.style.fontSize = newSize + 'px';
+        }
+
+        function toggleHighContrast() {
+            document.body.classList.toggle('high-contrast');
+            localStorage.setItem('highContrast', document.body.classList.contains('high-contrast'));
+        }
+
+        // Check if high contrast mode was previously enabled
+        if (localStorage.getItem('highContrast') === 'true') {
+            document.body.classList.add('high-contrast');
         }
     </script>
 </body>
