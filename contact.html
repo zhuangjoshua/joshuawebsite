@@ -3,328 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Joshua Zhuang - Web Developer & UX Enthusiast</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
-        
-        :root {
-            --text-color: #333333;
-            --background-color: #ffffff;
-            --accent-color: #4a90e2;
-            --secondary-color: #e67e22;
-            --input-background: #ffffff;
-            --input-border: #cccccc;
-            --link-color: #0000EE;
-            --link-visited-color: #551A8B;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            font-size: 16px;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
-        
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #000;
-            color: white;
-            padding: 8px;
-            z-index: 100;
-            transition: top 0.3s ease;
-        }
-        
-        .skip-link:focus {
-            top: 0;
-        }
-        
-        .font-size-controls {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 5px;
-            border-radius: 5px;
-            z-index: 1000;
-        }
-        
-        .font-size-controls button {
-            margin: 0 5px;
-            padding: 5px 10px;
-            font-size: 14px;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        .font-size-controls button:hover {
-            background-color: #3a7bd5;
-        }
-        
-        header {
-            background-color: var(--accent-color);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-        
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tagline {
-            font-style: italic;
-            font-size: 1.1rem;
-        }
-        
-        nav {
-            background-color: var(--secondary-color);
-            padding: 0.5rem;
-        }
-        
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            text-align: center;
-        }
-        
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            padding: 5px 10px;
-            transition: color 0.3s ease;
-        }
-        
-        nav ul li a:hover, nav ul li a:focus {
-            color: #f0f0f0;
-            text-decoration: underline;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-        
-        .contact-form, .contact-info {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-        
-        form {
-            display: grid;
-            gap: 15px;
-        }
-        
-        label {
-            font-weight: bold;
-            color: var(--text-color);
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--input-border);
-            border-radius: 4px;
-            font-size: 16px;
-            background-color: var(--input-background);
-            color: var(--text-color);
-        }
-        
-        button {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        button:hover, button:focus {
-            background-color: #3a7bd5;
-        }
-        
-        .contact-info p {
-            margin-bottom: 15px;
-        }
-        
-        .social-links {
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            margin-right: 15px;
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-        
-        .social-links a:hover, .social-links a:focus {
-            text-decoration: underline;
-        }
-        
-        footer {
-            background-color: var(--accent-color);
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 40px;
-        }
-        
-        .high-contrast-toggle {
-            position: fixed;
-            top: 50px;
-            right: 10px;
-            z-index: 1000;
-            background-color: var(--accent-color);
-            color: var(--background-color);
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        
-        /* High contrast mode */
-        @media (prefers-contrast: more) {
-            :root {
-                --text-color: #ffffff;
-                --background-color: #000000;
-                --accent-color: #ffff00;
-                --secondary-color: #00ffff;
-                --input-background: #000000;
-                --input-border: #ffffff;
-                --link-color: #ffff00;
-                --link-visited-color: #00ffff;
-            }
-        }
-        
-        body.high-contrast {
-            --text-color: #ffffff;
-            --background-color: #000000;
-            --accent-color: #ffff00;
-            --secondary-color: #00ffff;
-            --input-background: #000000;
-            --input-border: #ffffff;
-            --link-color: #ffff00;
-            --link-visited-color: #00ffff;
-        }
-        
-        /* Reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <title>Joshua Zhuang - Contact</title>
+    <link rel="stylesheet" href="scripts/styles.css">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <button class="high-contrast-toggle" onclick="toggleHighContrast()" aria-label="Toggle high contrast mode">
-        Toggle High Contrast
-    </button>
-    <div class="font-size-controls" aria-label="Font size controls">
-        <button onclick="changeFontSize('decrease')" aria-label="Decrease font size">A-</button>
-        <button onclick="changeFontSize('increase')" aria-label="Increase font size">A+</button>
-    </div>
+
     <header>
-        <h1>Joshua Zhuang</h1>
-        <p class="tagline">Web Developer & UX Enthusiast</p>
+        <div class="container">
+            <h1>Joshua Zhuang</h1>
+            <p>Web Developer & UX Enthusiast</p>
+        </div>
     </header>
-    <nav aria-label="Main navigation">
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html" aria-current="page">Contact</a></li>
-        </ul>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+        </div>
     </nav>
+
     <main id="main-content" class="container">
+        <h2>Get in Touch</h2>
         <div class="contact-grid">
             <section class="contact-form">
-                <h2>Get in Touch</h2>
-                <form action="#" method="post">
+                <h3>Send a Message</h3>
+                <form>
                     <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required aria-required="true">
-                    
+                    <input type="text" id="name" name="name" required>
+
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required aria-required="true">
-                    
+                    <input type="email" id="email" name="email" required>
+
                     <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
-                    
+                    <textarea id="message" name="message" required></textarea>
+
                     <button type="submit">Send Message</button>
                 </form>
             </section>
+
             <section class="contact-info">
-                <h2>Contact Information</h2>
+                <h3>Contact Information</h3>
                 <p>Feel free to reach out to me through any of the following channels:</p>
-                <p>Email: joshua.zhuang@example.com</p>
-                <p>Phone: (561) 631-7583</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/zhuangjoshua/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                </div>
+                <ul>
+                    <li>Email: joshua.zhuang@example.com</li>
+                    <li>Phone: (561) 631-7583</li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/zhuangjoshua/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </li>
+                </ul>
             </section>
         </div>
     </main>
+
     <footer>
-        <p>&copy; 2024 Joshua Zhuang. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 Joshua Zhuang. All rights reserved.</p>
+        </div>
     </footer>
-    <script>
-        function changeFontSize(action) {
-            const body = document.body;
-            const currentSize = window.getComputedStyle(body, null).getPropertyValue('font-size');
-            const newSize = action === 'increase' 
-                ? parseFloat(currentSize) * 1.2 
-                : parseFloat(currentSize) / 1.2;
-            body.style.fontSize = newSize + 'px';
-        }
 
-        function toggleHighContrast() {
-            document.body.classList.toggle('high-contrast');
-            localStorage.setItem('highContrast', document.body.classList.contains('high-contrast'));
-        }
+    <div class="accessibility-controls">
+        <button id="contrast-toggle">Toggle High Contrast</button>
+        <div class="font-size-controls">
+            <button id="decrease-font">A-</button>
+            <button id="increase-font">A+</button>
+        </div>
+    </div>
 
-        // Check if high contrast mode was previously enabled
-        if (localStorage.getItem('highContrast') === 'true') {
-            document.body.classList.add('high-contrast');
-        }
-    </script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
